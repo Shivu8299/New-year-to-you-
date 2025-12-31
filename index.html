@@ -56,48 +56,63 @@
         </div>
     </section>
 
+    <section id="scene-4" class="scene light-mode scrollable">
+        <div class="music-header">
+            <p class="vibe-text">Dedicated To You</p>
+            <h2 class="vibe-title">Songs That Match Your Vibes 🎶</h2>
+        </div>
+
+        <div class="cassette-container" onclick="toggleMusic('high_on_you.mp3', this)">
+            <div class="cassette-label">
+                <div class="song-meta">
+                    <p class="tape-title">Vibes 01</p>
+                    <p class="tape-sub">GOOD VIBES ONLY</p>
+                </div>
+            </div>
+            <div class="tape-mechanism">
+                <div class="wheel left-wheel"><div class="plus-mark">+</div></div>
+                <div class="wave-container"><canvas class="wave-canvas"></canvas></div>
+                <div class="wheel right-wheel"><div class="plus-mark">+</div></div>
+            </div>
+        </div>
+
+        <button class="floating-next" onclick="goToScene(5)">NEXT ➔</button>
+    </section>
+
     <section id="scene-5" class="scene light-mode scrollable">
         <div class="music-header">
             <p class="vibe-text">simple, honest & heartfelt</p>
             <h2 class="vibe-title">A Few Things I Want To Say ✨</h2>
             <p class="tap-flip">Tap to flip 🖊</p>
         </div>
-
         <div class="sticky-note-wrapper" onclick="this.classList.toggle('is-flipped')">
             <div class="note-inner">
-                <div class="note-front note-pink">
-                    <div class="tape-top"></div>
-                    <p class="note-text">You make moments feel lighter 🤍</p>
-                </div>
-                <div class="note-back">
-                    <img src="flip1.jpg">
-                    <p class="back-caption">Always grateful for you.</p>
-                </div>
+                <div class="note-front note-pink"><p class="note-text">You make moments feel lighter 🤍</p></div>
+                <div class="note-back"><p class="back-caption">Always grateful for you.</p></div>
             </div>
         </div>
-
-        <div class="sticky-note-wrapper" onclick="this.classList.toggle('is-flipped')">
-            <div class="note-inner">
-                <div class="note-front note-yellow">
-                    <div class="tape-top"></div>
-                    <p class="note-text">You are appreciated more than you know 🙂</p>
-                </div>
-                <div class="note-back">
-                    <img src="flip3.jpg">
-                    <p class="back-caption">Wishing you the best ✨</p>
-                </div>
-            </div>
-        </div>
-
         <button class="pink-next-btn" onclick="goToScene(6)">Next ➔</button>
-        <div class="spacer"></div>
+    </section>
+
+    <section id="scene-6" class="scene light-mode">
+        <div class="ferrero-wrapper">
+            <h2 class="ready-title">Ready for 2026?</h2>
+            <p class="chapter-text">A new chapter is waiting to be written...</p>
+            <button class="ignite-btn" onclick="goToScene(7)">IGNITE THE SPARK ✨</button>
+        </div>
+    </section>
+
+    <section id="scene-7" class="scene light-mode">
+        <div class="content-center">
+            <img src="pop_cat.gif" class="loader-cat">
+            <p class="closing-text">Closing 2025 on a good note...</p>
+            <div class="loading-bar-bg"><div class="loading-bar-fill"></div></div>
+            <p class="loading-perc">PREPARING 2026: <span id="perc">0%</span></p>
+        </div>
     </section>
 
     <section id="scene-8" class="scene light-mode">
         <div class="letter-box">
-            <div class="letter-top">
-                <img src="final_cat_blend.png" class="blend-header">
-            </div>
             <div class="letter-content">
                 <p class="hey-anu">Hey there,</p>
                 <h2 class="note-title">One Last Note</h2>
@@ -113,7 +128,7 @@
             <div class="typewriter-box">
                 <p id="type-text"></p>
             </div>
-            <button class="restart-btn" id="restart" onclick="location.reload()">RESTART THE JOURNEY</button>
+            <button class="restart-btn" id="restart" onclick="location.reload()">RESTART</button>
         </div>
     </section>
 
