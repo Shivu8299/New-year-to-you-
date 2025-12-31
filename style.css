@@ -1,0 +1,101 @@
+/* --- UNIVERSAL & FONTS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { font-family: 'Quicksand', sans-serif; overflow: hidden; height: 100vh; width: 100vw; background: #000; }
+
+/* THEMES */
+.dark-mode { background: #0a0a1a; color: white; }
+.light-mode { background: #FFF8E7; color: #4a4a4a; }
+.red-mode { background: #E63946; color: white; }
+
+/* SCENE MANAGEMENT */
+.scene { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity 0.6s ease; display: flex; flex-direction: column; align-items: center; }
+.scene.active { opacity: 1; pointer-events: all; z-index: 10; }
+.scrollable { overflow-y: auto; display: block; }
+
+/* --- SCENE 1: STAR & FIREWORK --- */
+#star-canvas, #firework-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.content-center { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; text-align: center; padding: 20px; z-index: 20; position: relative; }
+.hidden-content { opacity: 0; transform: translateY(20px); transition: all 1.5s ease; }
+.visible-content { opacity: 1; transform: translateY(0); }
+.year-title { font-family: 'Cinzel', serif; font-size: 5rem; font-weight: 700; color: transparent; background: linear-gradient(to bottom, #fff, #f4c430); -webkit-background-clip: text; margin: 10px 0; }
+.cat-box img { width: 110px; border: 2.5px solid #f4c430; padding: 5px; background: rgba(0,0,0,0.2); }
+.text-btn { background: none; border: none; border-bottom: 1.5px solid #f4c430; color: #f4c430; font-family: 'Cinzel'; letter-spacing: 2px; padding-bottom: 5px; cursor: pointer; margin-top: 25px; }
+
+/* --- SCENE 2: RED GREETING --- */
+.red-card { background: white; width: 85%; padding: 40px 20px; border-radius: 12px; color: #E63946; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; margin-top: 60px; }
+.corner-decoration { position: absolute; width: 110px; z-index: 20; }
+.top-left-cat { top: -20px; left: -20px; }
+.greeting-title { font-family: 'Cinzel'; font-size: 1.2rem; line-height: 1.4; margin-bottom: 15px; }
+.greeting-subtitle { font-family: 'Quicksand'; font-size: 0.9rem; color: #555; }
+.bbq-wrapper { margin: 25px 0; display: flex; flex-direction: column; align-items: center; }
+.bbq-icon { font-size: 4rem; margin-bottom: 10px; }
+.bbq-cat-small { width: 50px; }
+.red-next-btn { background: #E63946; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+.made-with-care { position: absolute; bottom: 30px; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.8; }
+
+/* --- SCENE 3: BUCKET LIST --- */
+.bucket-container { background: white; width: 85%; height: 75%; border-radius: 15px; padding: 40px 25px; margin-top: 60px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+.bucket-title { font-family: 'Playfair Display'; font-size: 1.8rem; font-weight: 700; color: #333; }
+.bucket-subtitle { font-family: 'Dancing Script'; font-size: 2.2rem; color: #E63946; margin-bottom: 30px; }
+.check-list { text-align: left; }
+.check-item { margin-bottom: 20px; display: flex; align-items: center; font-size: 0.95rem; color: #555; font-weight: 600; }
+.box { width: 22px; height: 22px; border: 2px solid #E63946; margin-right: 15px; border-radius: 4px; position: relative; }
+.box.checked::after { content: '✓'; position: absolute; top: -3px; left: 3px; color: #E63946; font-size: 1.2rem; font-weight: bold; }
+.go-btn { background: #E63946; color: white; border: none; padding: 15px 50px; border-radius: 50px; font-weight: 800; margin-top: 40px; width: 100%; box-shadow: 0 4px 10px rgba(230,57,70,0.3); }
+
+/* --- SCENE 4: MUSIC --- */
+.music-header { text-align: center; padding: 50px 20px 20px; }
+.vibe-text { font-family: 'Dancing Script'; font-size: 1.3rem; color: #E63946; }
+.vibe-title { font-family: 'Cinzel'; font-size: 1.2rem; margin-top: 5px; }
+.cassette-container { width: 330px; height: 180px; background: #c0392b; border-radius: 12px; margin: 30px auto; padding: 15px; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.15); transition: 0.2s; }
+.cassette-label { background: #ecf0f1; height: 60%; border-radius: 5px; display: flex; align-items: center; padding: 10px; color: #333; }
+.album-art { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; border: 3px solid #c0392b; margin-right: 15px; }
+.tape-title { font-family: 'Dancing Script'; font-size: 1.5rem; font-weight: bold; }
+.tape-sub { font-size: 0.6rem; color: #888; font-weight: bold; margin-top: 2px; }
+.side-a { position: absolute; right: 25px; top: 25px; font-weight: 900; font-size: 0.7rem; color: #555; }
+.tape-mechanism { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding: 0 35px; }
+.wheel { width: 35px; height: 35px; background: white; border-radius: 50%; border: 3px solid #333; display: flex; align-items: center; justify-content: center; position: relative; }
+.plus-mark { font-weight: 900; color: #333; font-size: 1.2rem; }
+.wave-container { width: 80px; height: 25px; background: rgba(0,0,0,0.2); border-radius: 5px; overflow: hidden; }
+.wave-canvas { width: 100%; height: 100%; }
+
+/* ANIMATIONS WHEN PLAYING */
+.cassette-container.playing { animation: shaky 0.1s infinite; border: 2px solid #f1c40f; }
+@keyframes shaky { 0% { transform: rotate(0.2deg); } 100% { transform: rotate(-0.2deg); } }
+.cassette-container.playing .wheel { animation: spin 2s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.floating-next { position: fixed; bottom: 25px; right: 25px; background: #E63946; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+/* --- SCENE 5: FLIP CARDS --- */
+.sticky-note-wrapper { perspective: 1000px; width: 280px; height: 320px; margin: 30px auto; }
+.note-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+.is-flipped .note-inner { transform: rotateY(180deg); }
+.note-front, .note-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.note-back { transform: rotateY(180deg); background: white; }
+.note-back img { width: 100%; border-radius: 5px; height: 180px; object-fit: cover; }
+.back-caption { font-family: 'Dancing Script'; font-size: 1.4rem; color: #E63946; margin-top: 15px; }
+.tape-top { width: 90px; height: 25px; background: rgba(255, 255, 255, 0.4); position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.note-pink { background: #ffcdd2; transform: rotate(-1deg); }
+.note-yellow { background: #fff9c4; transform: rotate(1deg); }
+.note-text { font-family: 'Dancing Script'; font-size: 1.8rem; text-align: center; color: #333; font-weight: bold; }
+
+/* --- SCENE 6: FERRERO --- */
+.ferrero-card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: rotate(-2deg); margin-bottom: 35px; }
+.ferrero-card img { width: 220px; border-radius: 4px; }
+.ready-title { font-family: 'Dancing Script'; font-size: 2.8rem; color: #333; }
+.chapter-text { font-style: italic; color: #888; margin: 10px 0 40px; }
+.ignite-btn { border: 2px solid #f4c430; background: transparent; color: #f4c430; padding: 15px 40px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+
+/* --- SCENE 8: ONE LAST NOTE --- */
+.letter-box { background: white; width: 85%; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.blend-header { width: 100%; height: 200px; object-fit: cover; mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0)); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0)); }
+.letter-content { padding: 30px; text-align: left; }
+.hey-anu { font-family: 'Dancing Script'; color: #f4c430; font-size: 1.5rem; }
+.note-title { font-family: 'Playfair Display'; font-size: 2.2rem; margin: 10px 0 20px; }
+.main-para { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 15px; }
+.seal-btn { background: #333; color: white; width: 100%; padding: 15px; border-radius: 50px; border: none; font-weight: bold; margin-top: 15px; }
+
+/* --- SCENE 9: SEALED --- */
+.typewriter-box { background: white; padding: 40px 20px; border-radius: 15px; width: 85%; margin: 30px 0; min-height: 120px; display: flex; align-items: center; }
+.handwriting-big { font-family: 'Dancing Script'; font-size: 1.8rem; color: #f4c430; line-height: 1.5; text-align: center; }
+.restart-btn { opacity: 0; pointer-events: none; transition: 1s; border: 2px solid #f4c430; color: #f4c430; background: transparent; padding: 12px 35px; border-radius: 50px; font-weight: bold; }
